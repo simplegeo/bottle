@@ -1,5 +1,5 @@
-python-bottle (0.6.4-1) UNRELEASED; urgency=low
+python-bottle (0.6.4-1) unstable; urgency=low
 
   * Initial release (Closes: #555717)
 
- -- David Paleino <dapal@debian.org>  Wed, 11 Nov 2009 12:30:24 +0100
+ -- David Paleino <dapal@debian.org>  Wed, 11 Nov 2009 13:48:02 +0100
