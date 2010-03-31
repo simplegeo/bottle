@@ -20,6 +20,7 @@ Architecture: all
 Depends:
  ${python:Depends}
  , ${misc:Depends}
+ , libjs-jquery
 XB-Python-Version: ${python:Versions}
 Description: fast and simple WSGI-framework for Python
  Bottle is a fast and simple WSGI-framework for the Python programming

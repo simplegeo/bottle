@@ -6,12 +6,14 @@ python-bottle (0.8.0-1) UNRELEASED; urgency=low
     - added Build-Dependency on python-sphinx, to build documentation
     - bumped debhelper B-D to >= 7.0.50~
     - Standards-Version bumped to 3.8.4 , no changes needed
+    - added runtime Depends on libjs-jquery
   * debian/docs added
   * debian/rules:
     - also install generated documentation
   * debian/source/format added, using 3.0 (quilt).
+  * debian/links added, use system-wide jQuery
 
- -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:32:04 +0200
+ -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:34:23 +0200
 
 python-bottle (0.6.4-1) unstable; urgency=low
 
