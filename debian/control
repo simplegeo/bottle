@@ -3,8 +3,11 @@ Section: python
 Priority: optional
 Maintainer: David Paleino <dapal@debian.org>
 Uploaders: Federico Ceratto <federico.ceratto@gmail.com>
-Build-Depends: debhelper (>= 7.0.8),
-Build-Depends-Indep: python-support, python (>= 2.5)
+Build-Depends:
+ debhelper (>= 7.0.8)
+Build-Depends-Indep:
+ python-support
+ , python (>= 2.5)
  , python-sphinx
 Standards-Version: 3.8.3
 Homepage: http://bottle.paws.de/
@@ -14,7 +17,9 @@ Vcs-Browser: http://git.debian.org/?p=collab-maint/python-bottle.git
 
 Package: python-bottle
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}
+Depends:
+ ${python:Depends}
+ , ${misc:Depends}
 XB-Python-Version: ${python:Versions}
 Description: fast and simple WSGI-framework for Python
  Bottle is a fast and simple WSGI-framework for the Python programming
