@@ -32,7 +32,7 @@ Architecture: all
 Section: doc
 Depends:
  ${misc:Depends}
- , libjs-query
+ , libjs-jquery
 Description: fast and simple WSGI-framework for Python - documentation
  Bottle is a fast and simple WSGI-framework for the Python programming
  language. It offers request dispatching with url parameter support
