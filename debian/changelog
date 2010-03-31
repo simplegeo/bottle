@@ -5,11 +5,12 @@ python-bottle (0.8.0-1) UNRELEASED; urgency=low
   * debian/control:
     - added Build-Dependency on python-sphinx, to build documentation
     - bumped debhelper B-D to >= 7.0.50~
+    - Standards-Version bumped to 3.8.4 , no changes needed
   * debian/docs added
   * debian/rules:
     - also install generated documentation
 
- -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:24:49 +0200
+ -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:31:12 +0200
 
 python-bottle (0.6.4-1) unstable; urgency=low
 
