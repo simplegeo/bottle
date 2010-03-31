@@ -1,3 +1,9 @@
+python-bottle (0.6.4-2) UNRELEASED; urgency=low
+
+  * debian/watch updated to point to github tags
+
+ -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 16:50:54 +0200
+
 python-bottle (0.6.4-1) unstable; urgency=low
 
   * Initial release (Closes: #555717)
