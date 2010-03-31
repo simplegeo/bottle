@@ -9,8 +9,9 @@ python-bottle (0.8.0-1) UNRELEASED; urgency=low
   * debian/docs added
   * debian/rules:
     - also install generated documentation
+  * debian/source/format added, using 3.0 (quilt).
 
- -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:31:12 +0200
+ -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:32:04 +0200
 
 python-bottle (0.6.4-1) unstable; urgency=low
 
