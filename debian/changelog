@@ -12,8 +12,9 @@ python-bottle (0.8.0-1) UNRELEASED; urgency=low
     - also install generated documentation
   * debian/source/format added, using 3.0 (quilt).
   * debian/links added, use system-wide jQuery
+  * debian/doc-base added
 
- -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:34:23 +0200
+ -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:37:32 +0200
 
 python-bottle (0.6.4-1) unstable; urgency=low
 
