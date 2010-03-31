@@ -7,14 +7,15 @@ python-bottle (0.8.0-1) UNRELEASED; urgency=low
     - bumped debhelper B-D to >= 7.0.50~
     - Standards-Version bumped to 3.8.4 , no changes needed
     - added runtime Depends on libjs-jquery
-  * debian/docs added
+    - new package python-bottle-doc added
+  * debian/python-bottle-doc.docs added
   * debian/rules:
     - also install generated documentation
   * debian/source/format added, using 3.0 (quilt).
-  * debian/links added, use system-wide jQuery
-  * debian/doc-base added
+  * debian/python-bottle-doc.links added, use system-wide jQuery
+  * debian/python-bottle-doc.doc-base added
 
- -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:37:32 +0200
+ -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:43:37 +0200
 
 python-bottle (0.6.4-1) unstable; urgency=low
 

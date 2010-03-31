@@ -10,11 +10,11 @@ override_dh_auto_build:
 
 override_dh_installdocs:
 	dh_installdocs
-	mv $(CURDIR)/debian/python-bottle/usr/share/doc/python-bottle/dirhtml/ \
-	   $(CURDIR)/debian/python-bottle/usr/share/doc/python-bottle/api/
+	mv $(CURDIR)/debian/python-bottle-doc/usr/share/doc/python-bottle-doc/dirhtml/ \
+	   $(CURDIR)/debian/python-bottle-doc/usr/share/doc/python-bottle-doc/api/
 
 override_dh_compress:
-	dh_compress -Xpython-bottle/api
+	dh_compress -Xpython-bottle-doc/api
 
 override_dh_auto_clean:
 	dh_auto_clean

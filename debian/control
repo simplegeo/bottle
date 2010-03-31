@@ -20,10 +20,23 @@ Architecture: all
 Depends:
  ${python:Depends}
  , ${misc:Depends}
- , libjs-jquery
 XB-Python-Version: ${python:Versions}
 Description: fast and simple WSGI-framework for Python
  Bottle is a fast and simple WSGI-framework for the Python programming
  language. It offers request dispatching with url parameter support
  (routes), templates, key/value databases, a built-in HTTP server and
  adapters for many third party WSGI/HTTP-server and template engines.
+
+Package: python-bottle-doc
+Architecture: all
+Section: doc
+Depends:
+ ${misc:Depends}
+ , libjs-query
+Description: fast and simple WSGI-framework for Python - documentation
+ Bottle is a fast and simple WSGI-framework for the Python programming
+ language. It offers request dispatching with url parameter support
+ (routes), templates, key/value databases, a built-in HTTP server and
+ adapters for many third party WSGI/HTTP-server and template engines.
+ .
+ This package contains the Python module documentation.
