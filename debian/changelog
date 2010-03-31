@@ -1,4 +1,4 @@
-python-bottle (0.8.0-1) UNRELEASED; urgency=low
+python-bottle (0.8.0-1) unstable; urgency=low
 
   * New upstream version
   * debian/watch updated to point to github tags
@@ -15,7 +15,7 @@ python-bottle (0.8.0-1) UNRELEASED; urgency=low
   * debian/python-bottle-doc.links added, use system-wide jQuery
   * debian/python-bottle-doc.doc-base added
 
- -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 17:43:37 +0200
+ -- David Paleino <dapal@debian.org>  Wed, 31 Mar 2010 18:30:31 +0200
 
 python-bottle (0.6.4-1) unstable; urgency=low
 
