@@ -1,3 +1,11 @@
+python-bottle (0.8.0-3) UNRELEASED; urgency=low
+
+  * debian/patches/02-fix_autoserver_ordering.patch added, moves
+    CherryPyServer later in the list, since it does weird things
+    on import even when people don't use it. (Closes: #586316)
+
+ -- David Paleino <dapal@debian.org>  Fri, 18 Jun 2010 20:12:42 +0200
+
 python-bottle (0.8.0-2) unstable; urgency=low
 
   * debian/patches/01-fix_quiet_parsing.patch added, thanks to Enrico
