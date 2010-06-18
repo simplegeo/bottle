@@ -1,4 +1,4 @@
-python-bottle (0.8.0-3) UNRELEASED; urgency=low
+python-bottle (0.8.0-3) unstable; urgency=low
 
   * debian/patches/02-fix_autoserver_ordering.patch added, moves
     CherryPyServer later in the list, since it does weird things
@@ -6,7 +6,7 @@ python-bottle (0.8.0-3) UNRELEASED; urgency=low
   * debian/control:
     - added Provides to python-bottle
 
- -- David Paleino <dapal@debian.org>  Fri, 18 Jun 2010 20:21:41 +0200
+ -- David Paleino <dapal@debian.org>  Fri, 18 Jun 2010 20:24:26 +0200
 
 python-bottle (0.8.0-2) unstable; urgency=low
 
