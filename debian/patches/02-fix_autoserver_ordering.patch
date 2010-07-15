@@ -5,20 +5,17 @@ Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=586316
 Forwarded: no
 
 ---
- bottle.py |    5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ bottle.py |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 --- python-bottle.orig/bottle.py
 +++ python-bottle/bottle.py
-@@ -1211,8 +1211,9 @@ class GunicornServer(ServerAdapter):
- 
+@@ -1348,7 +1348,7 @@ class RocketServer(ServerAdapter):
+         
  class AutoServer(ServerAdapter):
      """ Untested. """
--    adapters = [FapwsServer, CherryPyServer, PasteServer,
--                TwistedServer, GunicornServer, WSGIRefServer]
-+    adapters = [FapwsServer, PasteServer,
-+                TwistedServer, GunicornServer,
-+                CherryPyServer, WSGIRefServer]
+-    adapters = [CherryPyServer, PasteServer, TwistedServer, WSGIRefServer]
++    adapters = [PasteServer, TwistedServer, CherryPyServer, WSGIRefServer]
      def run(self, handler):
          for sa in self.adapters:
              try:
