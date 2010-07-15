@@ -1,4 +1,4 @@
-python-bottle (0.8.1-1) UNRELEASED; urgency=low
+python-bottle (0.8.1-1) unstable; urgency=low
 
   * New upstream version
   * debian/patches/:
@@ -13,7 +13,7 @@ python-bottle (0.8.1-1) UNRELEASED; urgency=low
   * debian/NEWS.Debian added, explain incompatible API changes with previous
     versions
 
- -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:41:02 +0200
+ -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 19:22:37 +0200
 
 python-bottle (0.8.0-3) unstable; urgency=low
 
