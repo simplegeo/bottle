@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bottle: Python Web Framework &mdash; Bottle v0.8.0 documentation</title>
+    <link rel="stylesheet" href="_static/bottle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.8.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Bottle v0.8.0 documentation" href="#" />
+    <link rel="next" title="How to start" href="intro/" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex/" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex/" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="intro/" title="How to start"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">Bottle v0.8.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="bottle-python-web-framework">
+<h1>Bottle: Python Web Framework<a class="headerlink" href="#bottle-python-web-framework" title="Permalink to this headline">¶</a></h1>
+<p>Bottle is a fast, simple and lightweight <a class="reference external" href="http://www.wsgi.org/wsgi/">WSGI</a> micro web-framework for <a class="reference external" href="http://python.org/">Python</a> with no external dependencies and packed into a single file.</p>
+<p class="rubric">Core Features</p>
+<ul class="simple">
+<li><strong>Routes:</strong> Mapping URLs to code with a simple but powerful pattern syntax.</li>
+<li><strong>Templates:</strong> Fast build-in template engine and support for <a class="reference external" href="http://www.makotemplates.org/">mako</a>, <a class="reference external" href="http://jinja.pocoo.org/2/">jinja2</a> and <a class="reference external" href="http://www.cheetahtemplate.org/">cheetah</a> templates.</li>
+<li><strong>Server:</strong> Build-in HTTP development server and support for <a class="reference external" href="http://pythonpaste.org/">paste</a>, <a class="reference external" href="http://github.com/william-os4y/fapws3">fapws3</a>, <a class="reference external" href="http://trac.saddi.com/flup">flup</a>, <a class="reference external" href="http://www.cherrypy.org/">cherrypy</a> or any other <a class="reference external" href="http://www.wsgi.org/wsgi/">WSGI</a> capable server.</li>
+<li><strong>Plug&amp;Run:</strong> All in a single file and no dependencies other than the Python standard library.</li>
+</ul>
+<p class="rubric">Download, Install and Dependencies</p>
+<p>You can install the latest stable release with <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">-U</span> <span class="pre">bottle</span></tt> or just download the newest <a class="reference external" href="http://github.com/defnull/bottle/raw/master/bottle.py">testing</a> version into your project directory. There are no (hard <a class="footnote-reference" href="#id2" id="id1">[1]</a>) dependencies other than the Python standard library. Bottle runs with <strong>Python 2.5+ and 3.x</strong> (using 2to3)</p>
+<p class="rubric">Example</p>
+<p>This is a minimal bottle application serving a single URL:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">route</span><span class="p">,</span> <span class="n">run</span>
+<span class="nd">@route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&#39;Hello World!&#39;</span>
+<span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Documentation</p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="intro/">How to start</a></li>
+<li class="toctree-l1"><a class="reference external" href="tutorial/">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference external" href="api/"><tt class="docutils literal"><span class="pre">bottle</span></tt> &#8211; API Reference</a><ul>
+<li class="toctree-l2"><a class="reference external" href="api/#the-bottle-class">The <tt class="docutils literal"><span class="pre">Bottle</span></tt> Class</a></li>
+<li class="toctree-l2"><a class="reference external" href="api/#http-request-and-response-objects">HTTP <tt class="docutils literal"><span class="pre">Request</span></tt> and <tt class="docutils literal"><span class="pre">Response</span></tt> objects</a></li>
+<li class="toctree-l2"><a class="reference external" href="api/#data-structures">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference external" href="api/#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference external" href="api/#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="stpl/">Simple Template Engine</a><ul>
+<li class="toctree-l2"><a class="reference external" href="stpl/#simpletemplate-syntax"><tt class="docutils literal"><span class="pre">SimpleTemplate</span></tt> Syntax</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="genindex/"><em>Index</em></a></li>
+<li><a class="reference external" href="modindex/"><em>Module Index</em></a></li>
+<li><a class="reference external" href="search/"><em>Search Page</em></a></li>
+</ul>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Usage of the template or server adapter classes of course requires the corresponding template or server modules.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/logo_nav.png" alt="Logo"/>
+            </a></p>
+            <h3><a href="#">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">Bottle: Python Web Framework</a><ul>
+</ul>
+</li>
+<li><a class="reference external" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            <h4>Next topic</h4>
+            <p class="topless"><a href="intro/"
+                                  title="next chapter">How to start</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/index.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search/" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex/" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex/" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="intro/" title="How to start"
+             >next</a> |</li>
+        <li><a href="#">Bottle v0.8.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Marcel Hellkamp.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>
