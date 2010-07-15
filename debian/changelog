@@ -6,7 +6,6 @@ python-bottle (0.8.1-1) UNRELEASED; urgency=low
       way upstream
     - 02-fix_autoserver_ordering.patch refreshed
   * debian/control:
-    - remove Build-Depends on python-sphinx
     - Standards-Version bumped to 3.9.0, no changes needed
   * debian/README.source removed, since the package now contains the
     documentation

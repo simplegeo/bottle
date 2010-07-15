@@ -8,6 +8,7 @@ Build-Depends:
 Build-Depends-Indep:
  python-support
  , python (>= 2.5)
+ , python-sphinx
 Standards-Version: 3.9.0
 Homepage: http://bottle.paws.de/
 XS-Python-Version: >=2.5
