@@ -1,8 +1,11 @@
 python-bottle (0.8.1-1) UNRELEASED; urgency=low
 
   * New upstream version
+  * debian/patches/:
+    - 01-fix_quiet_parsing.patch disabled, seems fixed in a different
+      way upstream
 
- -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:08:10 +0200
+ -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:16:50 +0200
 
 python-bottle (0.8.0-3) unstable; urgency=low
 
