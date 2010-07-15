@@ -5,8 +5,6 @@ python-bottle (0.8.1-1) UNRELEASED; urgency=low
     - 01-fix_quiet_parsing.patch disabled, seems fixed in a different
       way upstream
     - 02-fix_autoserver_ordering.patch refreshed
-  * debian/rules: don't build Sphinx documentation anymore, since
-    the upstream tarball contains the generated HTML files
   * debian/control:
     - remove Build-Depends on python-sphinx
     - Standards-Version bumped to 3.9.0, no changes needed
