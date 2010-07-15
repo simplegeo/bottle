@@ -7,8 +7,10 @@ python-bottle (0.8.1-1) UNRELEASED; urgency=low
     - 02-fix_autoserver_ordering.patch refreshed
   * debian/rules: don't build Sphinx documentation anymore, since
     the upstream tarball contains the generated HTML files
+  * debian/control:
+    - remove Build-Depends on python-sphinx
 
- -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:19:16 +0200
+ -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:20:14 +0200
 
 python-bottle (0.8.0-3) unstable; urgency=low
 
