@@ -13,8 +13,10 @@ python-bottle (0.8.1-1) UNRELEASED; urgency=low
   * debian/README.source removed, since the package now contains the
     documentation
   * debian/watch fixed, only get versions made by digits and dots
+  * debian/NEWS.Debian added, explain incompatible API changes with previous
+    versions
 
- -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:22:39 +0200
+ -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:41:02 +0200
 
 python-bottle (0.8.0-3) unstable; urgency=low
 
