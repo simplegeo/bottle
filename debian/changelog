@@ -12,8 +12,9 @@ python-bottle (0.8.1-1) UNRELEASED; urgency=low
     - Standards-Version bumped to 3.9.0, no changes needed
   * debian/README.source removed, since the package now contains the
     documentation
+  * debian/watch fixed, only get versions made by digits and dots
 
- -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:21:47 +0200
+ -- David Paleino <dapal@debian.org>  Thu, 15 Jul 2010 18:22:39 +0200
 
 python-bottle (0.8.0-3) unstable; urgency=low
 
