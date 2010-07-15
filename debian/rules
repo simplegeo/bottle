@@ -4,10 +4,6 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-override_dh_auto_build:
-	dh_auto_build
-	$(MAKE) -C apidoc dirhtml
-
 override_dh_installdocs:
 	dh_installdocs
 	mv $(CURDIR)/debian/python-bottle-doc/usr/share/doc/python-bottle-doc/dirhtml/ \
@@ -15,10 +11,6 @@ override_dh_installdocs:
 
 override_dh_compress:
 	dh_compress -Xpython-bottle-doc/api
-
-override_dh_auto_clean:
-	dh_auto_clean
-	$(MAKE) -C apidoc clean
 
 %:
 	dh  $@
