@@ -1,8 +1,9 @@
 python-bottle (0.8.2-1) UNRELEASED; urgency=low
 
   * New upstream version
+  * debian/patches/02-fix_autoserver_ordering.patch refreshed
 
- -- David Paleino <dapal@debian.org>  Sat, 31 Jul 2010 16:39:46 +0200
+ -- David Paleino <dapal@debian.org>  Sun, 01 Aug 2010 11:10:20 +0200
 
 python-bottle (0.8.1-1) unstable; urgency=low
 
