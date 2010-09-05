@@ -62,7 +62,7 @@ This is an example::
 from __future__ import with_statement
 
 __author__ = 'Marcel Hellkamp'
-__version__ = '0.8.2'
+__version__ = '0.8.3'
 __license__ = 'MIT'
 
 import base64
@@ -1432,7 +1432,7 @@ class FileCheckerThread(threading.Thread):
                     self.status = 3
             if not exists(self.lockfile):
                 self.status = 2
-            elif mtime(self.lockfile) < time.time() - self.interval * 2:
+            elif mtime(self.lockfile) < time.time() - self.interval - 5:
                 self.status = 1
             if not self.status:
                 time.sleep(self.interval)
