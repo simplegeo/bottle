@@ -1,8 +1,9 @@
-python-bottle (0.8.3-1) UNRELEASED; urgency=low
+python-bottle (0.8.3-1) experimental; urgency=low
 
   * New upstream version
+  * Upload to experimental, since we're in hard Squeeze freeze now.
 
- -- David Paleino <dapal@debian.org>  Sun, 05 Sep 2010 07:52:03 +0200
+ -- David Paleino <dapal@debian.org>  Sun, 05 Sep 2010 07:52:39 +0200
 
 python-bottle (0.8.2-1) unstable; urgency=low
 
