@@ -62,7 +62,7 @@ This is an example::
 from __future__ import with_statement
 
 __author__ = 'Marcel Hellkamp'
-__version__ = '0.8.3'
+__version__ = '0.8.4'
 __license__ = 'MIT'
 
 import base64
@@ -1806,7 +1806,7 @@ def view(tpl_name, **defaults):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             result = func(*args, **kwargs)
-            if isinstance(result, dict):
+            if isinstance(result, (dict, DictMixin)):
                 tplvars = defaults.copy()
                 tplvars.update(result)
                 return template(tpl_name, **tplvars)
