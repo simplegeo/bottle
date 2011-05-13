@@ -10,11 +10,11 @@ Forwarded: no
 
 --- python-bottle.orig/bottle.py
 +++ python-bottle/bottle.py
-@@ -1369,7 +1369,7 @@ class RocketServer(ServerAdapter):
-         
+@@ -1850,7 +1850,7 @@ class BjoernServer(ServerAdapter):
+ 
  class AutoServer(ServerAdapter):
      """ Untested. """
--    adapters = [CherryPyServer, PasteServer, TwistedServer, WSGIRefServer]
+-    adapters = [PasteServer, CherryPyServer, TwistedServer, WSGIRefServer]
 +    adapters = [PasteServer, TwistedServer, CherryPyServer, WSGIRefServer]
      def run(self, handler):
          for sa in self.adapters:
