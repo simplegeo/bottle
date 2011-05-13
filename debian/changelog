@@ -1,4 +1,4 @@
-python-bottle (0.9.1-1) UNRELEASED; urgency=low
+python-bottle (0.9.1-1) unstable; urgency=low
 
   * New upstream version
   * Update debian/copyright
@@ -9,7 +9,7 @@ python-bottle (0.9.1-1) UNRELEASED; urgency=low
   * Adapt debian/rules to correctly run the testsuite and install
     the plugins
 
- -- David Paleino <dapal@debian.org>  Fri, 13 May 2011 17:56:47 +0200
+ -- David Paleino <dapal@debian.org>  Fri, 13 May 2011 18:13:10 +0200
 
 python-bottle (0.8.4-1) unstable; urgency=low
 
