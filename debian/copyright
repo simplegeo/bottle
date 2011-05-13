@@ -1,11 +1,11 @@
 Format-Specification: http://dep.debian.net/deps/dep5/
 
 Files: debian/*
-Copyright: © 2009, David Paleino <dapal@debian.org>
+Copyright: © 2009-2011, David Paleino <dapal@debian.org>
 License: MIT
 
 Files: *
-Copyright: © 2009, Marcel Hellkamp <marc@gsites.de>
+Copyright: © 2009-2011, Marcel Hellkamp <marc@gsites.de>
 License: MIT
 
 License: MIT
