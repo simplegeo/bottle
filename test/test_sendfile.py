@@ -35,8 +35,8 @@ class TestSendFile(unittest.TestCase):
         e = dict()
         wsgiref.util.setup_testing_defaults(e)
         b = Bottle()
-        request.bind(e, b)
-        response.bind(b)
+        request.bind(e)
+        response.bind()
 
     def test_valid(self):
         """ SendFile: Valid requests"""
@@ -85,6 +85,6 @@ class TestSendFile(unittest.TestCase):
         self.assertEqual(open(__file__,'rb').read(), f.output.read())
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': #pragma: no cover
     unittest.main()
 

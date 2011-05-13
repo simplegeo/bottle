@@ -2,44 +2,50 @@ import unittest
 import bottle
 
 class TestRouter(unittest.TestCase):
-    def setUp(self):
-        self.r = r = bottle.Router()
+    CGI=False
     
-    def add(self, *a, **ka):
-        self.r.add(*a, **ka)
-        self.r.compile()
+    def setUp(self):
+        self.r = bottle.Router()
+    
+    def add(self, path, target, method='GET', **ka):
+        self.r.add(path, method, target, **ka)
+
+    def match(self, path, method='GET'):
+        env = {'PATH_INFO': path, 'REQUEST_METHOD': method}
+        if self.CGI:
+            env['wsgi.run_once'] = 'true'
+        return self.r.match(env)
+
+    def assertMatches(self, rule, url, method='GET', **args):
+        self.add(rule, rule, method)
+        target, urlargs = self.match(url, method)
+        self.assertEqual(rule, target)
+        self.assertEqual(args, urlargs)
 
     def testBasic(self):
-        add = self.add
-        match = self.r.match
-        add('/static', 'static')
-        self.assertEqual(('static', {}), match('/static'))
-        add('/\\:its/:#.+#/:test/:name#[a-z]+#/', 'handler')
-        self.assertEqual(('handler', {'test': 'cruel', 'name': 'world'}), match('/:its/a/cruel/world/'))
-        add('/:test', 'notail')
-        self.assertEqual(('notail', {'test': 'test'}), match('/test'))
-        add(':test/', 'nohead')
-        self.assertEqual(('nohead', {'test': 'test'}), match('test/'))
-        add(':test', 'fullmatch')
-        self.assertEqual(('fullmatch', {'test': 'test'}), match('test'))
-        add('/:#anon#/match', 'anon')
-        self.assertEqual(('anon', {}), match('/anon/match'))
-        self.assertEqual((None, {}), match('//no/m/at/ch/'))
+        self.assertMatches('/static', '/static')
+        self.assertMatches('/\\:its/:#.+#/:test/:name#[a-z]+#/',
+                           '/:its/a/cruel/world/',
+                           test='cruel', name='world')
+        self.assertMatches('/:test', '/test', test='test') # No tail
+        self.assertMatches(':test/', 'test/', test='test') # No head
+        self.assertMatches('/:test/', '/test/', test='test') # Middle
+        self.assertMatches(':test', 'test', test='test') # Full wildcard
+        self.assertMatches('/:#anon#/match', '/anon/match') # Anon wildcards
+        self.assertRaises(bottle.HTTPError, self.match, '//no/m/at/ch/')
+
+    def testWildcardNames(self):
+        self.assertMatches('/alpha/:abc', '/alpha/alpha', abc='alpha')
+        self.assertMatches('/alnum/:md5', '/alnum/sha1', md5='sha1')
 
     def testParentheses(self):
-        add = self.add
-        match = self.r.match
-        add('/func(:param)', 'func')
-        self.assertEqual(('func', {'param':'foo'}), match('/func(foo)'))
-        add('/func2(:param#(foo|bar)#)', 'func2')
-        self.assertEqual(('func2', {'param':'foo'}), match('/func2(foo)'))
-        self.assertEqual(('func2', {'param':'bar'}), match('/func2(bar)'))
-        self.assertEqual((None, {}),                match('/func2(baz)'))        
-        add('/groups/:param#(foo|bar)#', 'groups')
-        self.assertEqual(('groups', {'param':'foo'}), match('/groups/foo'))
+        self.assertMatches('/func(:param)', '/func(foo)', param='foo')
+        self.assertMatches('/func2(:param#(foo|bar)#)', '/func2(foo)', param='foo')
+        self.assertMatches('/func2(:param#(foo|bar)#)', '/func2(bar)', param='bar')
+        self.assertRaises(bottle.HTTPError, self.match, '/func2(baz)')
 
     def testErrorInPattern(self):
-        self.assertRaises(bottle.RouteSyntaxError, self.add, '/:bug#(#/', 'buggy')
+        self.assertRaises(Exception, self.assertMatches, '/:bug#(#/', '/foo/')
 
     def testBuild(self):
         add = self.add
@@ -48,6 +54,8 @@ class TestRouter(unittest.TestCase):
         add('/anon/:#.#', 'handler', name='anonroute')
         url = build('testroute', test='hello', name='world')
         self.assertEqual('/hello/world/', url)
+        url = build('testroute', test='hello', name='world', q='value')
+        self.assertEqual('/hello/world/?q=value', url)
         self.assertRaises(bottle.RouteBuildError, build, 'test')
         # RouteBuildError: No route found with name 'test'.
         self.assertRaises(bottle.RouteBuildError, build, 'testroute')
@@ -57,5 +65,14 @@ class TestRouter(unittest.TestCase):
         #self.assertRaises(bottle.RouteBuildError, build, 'anonroute')
         # RouteBuildError: Anonymous pattern found. Can't generate the route 'anonroute'.
 
-if __name__ == '__main__':
+    def test_method(self):
+        #TODO Test method handling. This is done in the router now.
+        pass
+
+
+class TestRouterInCGIMode(TestRouter):
+    CGI = True
+
+
+if __name__ == '__main__': #pragma: no cover
     unittest.main()
