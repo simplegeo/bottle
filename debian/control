@@ -12,6 +12,7 @@ Build-Depends-Indep:
 # needed for build-time tests
  , python-cherrypy
  , python-gevent
+ , python-mako
 # , gunicorn
 # , python-tornado
 Standards-Version: 3.9.2
