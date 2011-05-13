@@ -1,5 +1,4 @@
 include bottle.py
 include setup.py
-recursive-include test *.py *.tpl
-recursive-include apidoc/*.rst
-
+include README.rst
+include LICENSE.txt

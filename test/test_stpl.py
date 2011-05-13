@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bottle import SimpleTemplate, TemplateError
+from bottle import SimpleTemplate, TemplateError, view, template
 
 class TestSimpleTemplate(unittest.TestCase):
     def test_string(self):
         """ Templates: Parse string"""
         t = SimpleTemplate('start {{var}} end').render(var='var')
+        self.assertEqual(u'start var end', t)
+        t = SimpleTemplate('start {{self}} end').render({'self':'var'}) # "self" cannot be used as a kwarg
         self.assertEqual(u'start var end', t)
 
     def test_file(self):
@@ -164,7 +166,7 @@ class TestSimpleTemplate(unittest.TestCase):
 
     def test_error(self):
         """ Templates: Exceptions"""
-        self.assertRaises(SyntaxError, SimpleTemplate, '%for badsyntax')
+        self.assertRaises(SyntaxError, lambda: SimpleTemplate('%for badsyntax').co)
         self.assertRaises(IndexError, SimpleTemplate('{{i[5]}}').render, i=[0])
     
     def test_winbreaks(self):
@@ -190,18 +192,29 @@ class TestSimpleTemplate(unittest.TestCase):
 
     def test_ignore_pep263_in_textline(self):
         ''' PEP263 strings in text-lines have no effect '''
-        self.assertRaises(UnicodeError, SimpleTemplate, u'#coding: iso8859_15\nöäü?@€'.encode('iso8859_15'))
+        self.assertRaises(UnicodeError, lambda: SimpleTemplate(u'#coding: iso8859_15\nöäü?@€'.encode('iso8859_15')).co)
         t = SimpleTemplate(u'#coding: iso8859_15\nöäü?@€'.encode('utf8'))
         self.assertEqual(u'#coding: iso8859_15\nöäü?@€', t.render())
         self.assertEqual(t.encoding, 'utf8')
 
     def test_ignore_late_pep263(self):
         ''' PEP263 strings must appear within the first two lines '''
-        self.assertRaises(UnicodeError, SimpleTemplate, u'\n\n%#coding: iso8859_15\nöäü?@€'.encode('iso8859_15'))
+        self.assertRaises(UnicodeError, lambda: SimpleTemplate(u'\n\n%#coding: iso8859_15\nöäü?@€'.encode('iso8859_15')).co)
         t = SimpleTemplate(u'\n\n%#coding: iso8859_15\nöäü?@€'.encode('utf8'))
         self.assertEqual(u'\n\nöäü?@€', t.render())
         self.assertEqual(t.encoding, 'utf8')
-        
-if __name__ == '__main__':
+
+    def test_template_shortcut(self):
+        result = template('start {{var}} end', var='middle')
+        self.assertEqual(u'start middle end', result)
+
+    def test_view_decorator(self):
+        @view('start {{var}} end')
+        def test():
+            return dict(var='middle')
+        self.assertEqual(u'start middle end', test())
+
+
+if __name__ == '__main__': #pragma: no cover
     unittest.main()
 

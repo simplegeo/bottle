@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bottle import Jinja2Template
+from bottle import Jinja2Template, jinja2_template, jinja2_view
 
 
 class TestJinja2Template(unittest.TestCase):
@@ -49,6 +49,16 @@ class TestJinja2Template(unittest.TestCase):
         self.assertEqual("gerade", t.render(var=2))
         self.assertEqual("ungerade", t.render(var=1))
 
+    def test_template_shortcut(self):
+        result = jinja2_template('start {{var}} end', var='middle')
+        self.assertEqual(u'start middle end', result)
+
+    def test_view_decorator(self):
+        @jinja2_view('start {{var}} end')
+        def test():
+            return dict(var='middle')
+        self.assertEqual(u'start middle end', test())
+
 
 try:
   import jinja2
@@ -56,6 +66,6 @@ except ImportError:
   print "WARNING: No Jinja2 template support. Skipping tests."
   del TestJinja2Template
 
-if __name__ == '__main__':
+if __name__ == '__main__': #pragma: no cover
     unittest.main()
 

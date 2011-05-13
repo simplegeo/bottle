@@ -68,13 +68,16 @@ class TestOutputFilter(ServerTestBase):
 
     def test_json(self):
         self.app.route('/')(lambda: {'a': 1})
-        self.assertBody(bottle.json_dumps({'a': 1}))
-        self.assertHeader('Content-Type','application/json')
+        if bottle.json_dumps:
+            self.assertBody(bottle.json_dumps({'a': 1}))
+            self.assertHeader('Content-Type','application/json')
+        else:
+            print "Warning: No json module installed."
 
     def test_custom(self):
-        self.app.route('/')(lambda: {'a': 1, 'b': 2})
-        self.app.add_filter(dict, lambda x: x.keys())
-        self.assertBody('ab')
+        self.app.route('/')(lambda: 5)
+        self.app.add_filter(int, lambda x: str(x))
+        self.assertBody('5')
 
     def test_generator_callback(self):
         @self.app.route('/')
@@ -151,5 +154,5 @@ class TestOutputFilter(ServerTestBase):
         self.assertTrue('b=b' in c)
         self.assertTrue('c=c; Path=/' in c)
 
-if __name__ == '__main__':
+if __name__ == '__main__': #pragma: no cover
     unittest.main()
