@@ -6,7 +6,7 @@
 
 override_dh_auto_build:
 	dh_auto_build
-	$(MAKE) -C apidoc dirhtml
+	$(MAKE) -C docs dirhtml
 
 override_dh_installdocs:
 	dh_installdocs
@@ -18,7 +18,7 @@ override_dh_compress:
 
 override_dh_auto_clean:
 	dh_auto_clean
-	$(MAKE) -C apidoc clean
+	$(MAKE) -C docs clean
 
 %:
 	dh  $@
