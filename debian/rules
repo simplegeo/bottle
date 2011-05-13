@@ -5,8 +5,17 @@
 #export DH_VERBOSE=1
 
 override_dh_auto_build:
-	dh_auto_build
+	dh_auto_build -Spython_distutils
+	for i in plugins/*; do \
+		dh_auto_build -Spython_distutils -D$$i -Bbuild/; \
+	done
 	$(MAKE) -C docs dirhtml
+
+override_dh_auto_install:
+	dh_auto_install -Spython_distutils
+#	for i in plugins/*; do \
+#		dh_auto_install -Spython_distutils -D$$i -Bbuild/; \
+#	done
 
 override_dh_installdocs:
 	dh_installdocs
@@ -17,8 +26,9 @@ override_dh_compress:
 	dh_compress -Xpython-bottle-doc/api
 
 override_dh_auto_clean:
-	dh_auto_clean
+	dh_auto_clean -Spython_distutils
 	$(MAKE) -C docs clean
 
 %:
-	dh  $@
+	dh $@
+		--with python2

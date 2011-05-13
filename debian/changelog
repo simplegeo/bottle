@@ -6,8 +6,10 @@ python-bottle (0.9.1-1) UNRELEASED; urgency=low
   * Patches refreshed
   * Fix docs generation (directory renamed upstream)
   * Fix testsuite
+  * Adapt debian/rules to correctly run the testsuite and install
+    the plugins
 
- -- David Paleino <dapal@debian.org>  Fri, 13 May 2011 17:56:04 +0200
+ -- David Paleino <dapal@debian.org>  Fri, 13 May 2011 17:56:47 +0200
 
 python-bottle (0.8.4-1) unstable; urgency=low
 
