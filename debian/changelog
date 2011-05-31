@@ -1,4 +1,10 @@
-python-bottle (0.9.2-1) lucid; urgency=low
+python-bottle (0.9.2-1sg0) unstable; urgency=low
+
+  * Simplegeo version
+
+ -- Jeremy Grosser <jeremy@synack.me>  Tue, 31 May 2011 22:49:59 +0000
+
+python-bottle (0.9.2-1) unstable; urgency=low
 
   * New upstream version
 
