@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+override_dh_auto_build:
+	dh_auto_build -Spython_distutils
+	for i in plugins/*; do \
+		dh_auto_build -Spython_distutils -D$$i -Bbuild/; \
+	done
+	$(MAKE) -C docs dirhtml
+
+override_dh_auto_install:
+	dh_auto_install -Spython_distutils
+	rm -rf $(CURDIR)/debian/python-bottle-doc/usr/share/doc/python-bottle-doc/api/_images/myface_small.png
+
+override_dh_installdocs:
+	dh_installdocs
+	mv $(CURDIR)/debian/python-bottle-doc/usr/share/doc/python-bottle-doc/dirhtml/ \
+	   $(CURDIR)/debian/python-bottle-doc/usr/share/doc/python-bottle-doc/api/
+
+override_dh_compress:
+	dh_compress -Xpython-bottle-doc/api
+
+override_dh_auto_clean:
+	dh_auto_clean -Spython_distutils
+	$(MAKE) -C docs clean
+
+%:
+	dh $@ \
+		--with python2
