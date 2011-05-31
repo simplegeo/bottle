@@ -1,5 +1,14 @@
 python-bottle (0.9.2-1sg0) lucid; urgency=low
 
+  [ Jeremy Grosser ]
+  * Add pycompat
+
+  [ SimpleGeo Nerds ]
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 31 May 2011 23:13:09 +0000
+
+python-bottle (0.9.2-1sg0) lucid; urgency=low
+
   * SG version 
 
  -- Jeremy Grosser <jeremy@synack.me>  Tue, 31 May 2011 23:02:25 +0000
